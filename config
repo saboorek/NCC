@@ -1,0 +1,16 @@
+#Lokalizacja Spawnu
+spawnLocX: 92
+spawnLocY: 63
+spawnLocZ: 130
+spawnLocWorld: 'NeptuneAdventure'
+#Pliki Gracza
+players:
+
+autoMsg:
+  - '&6&lAutoMSG 1'
+  - '&6&lAutoMSG 2'
+  - '&6&lAutoMSG 3'
+  - '&6&lAutoMSG 4'
+dailyMsg:
+
+
