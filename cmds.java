@@ -43,7 +43,8 @@ public class Cmds implements CommandExecutor{
 		}
 		if(cmd.getName().equalsIgnoreCase("ulecz")) {
 			if(sender.hasPermission("ncc.heal")) {
-				if(args.length == 0) {
+			statement.executeQuary(SELECT 'aduty' FROM 'Playerdata' WHERE 'Playerdata'. 'aduty' =1) {
+					if(args.length == 0) {
 					if(!(sender instanceof Player)) {
 						sender.sendMessage("§cNie jestes graczem!");
 						return false;
@@ -60,7 +61,9 @@ public class Cmds implements CommandExecutor{
 					} else {
 						sender.sendMessage("§c§1Nie ma takiego gracza na serwerze!");
 					}
-				}	
+				}		
+			}
+				
 			} else {
 				sender.sendMessage("§Nie posiadasz uprawnien do wykonania tej komendy!");
 			}
