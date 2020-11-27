@@ -155,10 +155,15 @@ public class Cmds implements CommandExecutor{
 		}
 		if(cmd.getName().equalsIgnoreCase("alist")) {
 				sender.sendMessage("&6 SYSTEM W TRAKCIE BUDOWY. ZA UTRUDNIENIA PRZEPRASZAMY");
+			
 		}
 		if(cmd.getName().equalsIgnoreCase("aduty")) {
 			if(sender.hasPermission("ncc.admin.aduty")) {
 				if(args.length == 1) {
+					statement.executeQuery("SELECT * FROM PlayerData WHERE admin=1;"); //Pobieranie danych jeżeli gracz jest Administratorem
+					statement.executeQuery("SELECT * FROM PlayerData WHERE admin=2;"); //Pobieranie danych jeżeli gracz jest Moderatorem
+					statement.executeQuery("SELECT * FROM PlayerData WHERE admin=3;"); //Pobieranie danych jeżeli gracz jest Developerem
+					statement.executeQuery("SELECT * FROM PlayerData WHERE admin=4;"); //Pobieranie danych jeżeli gracz jest Supporterem
 					
 				
 				Player p = (Player) sender;
@@ -166,12 +171,13 @@ public class Cmds implements CommandExecutor{
 				if(args[0].equals("zaloguj")) {
 						sender.sendMessage("§6[DUTY INFO]§3Zalogowales sie na konto administratora");
 						p.setGameMode(GameMode.SPECTATOR);
-						
+						statement.executeUpdate("UPDATE 'Playerdata' SET 'aduty' = '1' WHERE 'Playerdata'. 'aduty' =0);
 						Bukkit.broadcastMessage("§6[INFO]§dAdministrator §c" +pn+ " §dzalogowal sie na serwer!");
 					}
 				if(args[0].equals("wyloguj")) {
 					sender.sendMessage("§6[DUTY INFO]§3Wylogowales sie z konta administratora");
 						p.setGameMode(GameMode.SURVIVAL);
+						statement.executeUpdate("UPDATE 'Playerdata' SET 'aduty' = '0' WHERE 'Playerdata'. 'aduty' =1);
 						Bukkit.broadcastMessage("§6[INFO]§dAdministrator §c" +pn+ " §dwylogowal sie z serwera!");
 						
 					}
