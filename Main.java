@@ -87,17 +87,24 @@ public class Main extends JavaPlugin {
 	public static Main getInst() {
 		return instance;
 	}
-	private void autoMsg() {
-		i = 0;
-		Bukkit.getScheduler().runTaskTimer(this, new Runnable() {
-			public void run() {
-				Bukkit.broadcastMessage(ChatColor.translateAlternateColorCodes('&', msgs.get(i)));
-				i++;
-				if(i == msgs.size()) {
-					i = 0;
-				}
-			}
-		}, 0, 1200);
-	}
+	public class Test extends JavaPlugin {
+
+    String host, port, database, username, password;
+    static Connection connection;
+ 
+    @Override
+    public void onEnable() {  
+        host = "localhost";
+        port = "3306";
+        database = "TestDatabase";
+        username = "user";
+        password = "pass";    
+    }
+ 
+    @Override
+    public void onDisable() {
+	    statement.executeUpdate(INSERT INTO PlayerData (PLAYER, BALANCE) VALUES ('Playername', 'balance');
+    }
+
 }
 
