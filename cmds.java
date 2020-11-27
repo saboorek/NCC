@@ -171,13 +171,13 @@ public class Cmds implements CommandExecutor{
 				if(args[0].equals("zaloguj")) {
 						sender.sendMessage("§6[DUTY INFO]§3Zalogowales sie na konto administratora");
 						p.setGameMode(GameMode.SPECTATOR);
-						statement.executeUpdate("UPDATE 'Playerdata' SET 'aduty' = '1' WHERE 'Playerdata'. 'aduty' =0);
+						statement.executeUpdate("UPDATE 'Playerdata' SET 'aduty' = '1' WHERE 'Playerdata'. 'aduty' =0");
 						Bukkit.broadcastMessage("§6[INFO]§dAdministrator §c" +pn+ " §dzalogowal sie na serwer!");
 					}
 				if(args[0].equals("wyloguj")) {
 					sender.sendMessage("§6[DUTY INFO]§3Wylogowales sie z konta administratora");
 						p.setGameMode(GameMode.SURVIVAL);
-						statement.executeUpdate("UPDATE 'Playerdata' SET 'aduty' = '0' WHERE 'Playerdata'. 'aduty' =1);
+						statement.executeUpdate("UPDATE 'Playerdata' SET 'aduty' = '0' WHERE 'Playerdata'. 'aduty' =1");
 						Bukkit.broadcastMessage("§6[INFO]§dAdministrator §c" +pn+ " §dwylogowal sie z serwera!");
 						
 					}
