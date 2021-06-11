@@ -23,7 +23,7 @@ public class Cmds implements CommandExecutor{
 	@Override
 	public boolean onCommand(CommandSender sender, Command cmd, String l, String[] args) {
 		if(cmd.getName().equalsIgnoreCase("mspawn")) {
-			if(sender.hasPermission("ncc.mobspawn")) {
+			if(sender.hasPermission("ncc.admin.mobspawn")) {
 				
 			if(args.length !=1) {
 					return false;
@@ -42,7 +42,7 @@ public class Cmds implements CommandExecutor{
 			}
 		}
 		if(cmd.getName().equalsIgnoreCase("ulecz")) {
-			if(sender.hasPermission("ncc.heal")) {
+			if(sender.hasPermission("ncc.admin.heal")) {
 			statement.executeQuary(SELECT 'aduty' FROM 'Playerdata' WHERE 'Playerdata'. 'aduty' =1) {
 					if(args.length == 0) {
 					if(!(sender instanceof Player)) {
@@ -58,6 +58,7 @@ public class Cmds implements CommandExecutor{
 					if(Bukkit.getPlayer(pName) !=null) {
 						Player p = Bukkit.getPlayer(pName);
 						p.setHealth(20);
+						p.sendMessage("§3Zostałeś uleczony przez Administrację!");
 					} else {
 						sender.sendMessage("§c§1Nie ma takiego gracza na serwerze!");
 					}
@@ -156,10 +157,6 @@ public class Cmds implements CommandExecutor{
 				sender.sendMessage("§6[INFO]§cNie posiadasz uprawnien do wykonania tej komendy!");
 			}
 		}
-		if(cmd.getName().equalsIgnoreCase("alist")) {
-				sender.sendMessage("&6 SYSTEM W TRAKCIE BUDOWY. ZA UTRUDNIENIA PRZEPRASZAMY");
-			
-		}
 		if(cmd.getName().equalsIgnoreCase("aduty")) {
 			if(sender.hasPermission("ncc.admin.aduty")) {
 				if(args.length == 1) {
@@ -186,22 +183,6 @@ public class Cmds implements CommandExecutor{
 					}
 				}
 			}
-		}
-		if(cmd.getName().equalsIgnoreCase("spy")) {
-			if(sender.hasPermission("ncc.admin.spy")) {
-				if(args.length == 1) {
-					
-					
-					Player p = (Player) sender;
-					if(args[0].equals("spectator")) {
-						p.setGameMode(GameMode.SPECTATOR);
-					}
-					if(args[0].equals("tpto")) {
-						p.sendMessage("Przepraszamy, komenda obecnie nie działa");
-						
-					}
-				}
-			} 
 		}
 		if(cmd.getName().equalsIgnoreCase("spawn")) {
 			if(sender.hasPermission("ncc.spawn")) {
@@ -244,23 +225,8 @@ public class Cmds implements CommandExecutor{
 				sender.sendMessage("§cWiecej informacji znajduje sie na forum");
 			}
 		}
-		// Komenda do wykonywania CK na graczu, na chwilę obecną zabija i wyrzuca gracza z serwera (kick) z możliwością powrotu
-		
-		/*if(cmd.getName().equalsIgnoreCase("ck")) {
-				if(sender.hasPermission("ncc.ck")) {
-					if(!(sender instanceof Player)) {
-					sender.sendMessage("§cTylko gracz moze uzyc tej komendy!");
-					
-					return false;
-					}
-				Player p = (Player) sender;
-				String n = p.getName();
-				p.setHealth(0);
-				p.kickPlayer(n);
-			}
-		}*/
 		if(cmd.getName().equalsIgnoreCase("getpos")) {
-			if(sender.hasPermission("ncc.getpos")) {
+			if(sender.hasPermission("ncc.admin.getpos")) {
 				if(!(sender instanceof Player)) {
 					sender.sendMessage("§cTylko gracz moze uzyc tej komendy!");
 				
